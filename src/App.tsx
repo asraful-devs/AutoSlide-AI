@@ -1,7 +1,9 @@
+import Hero from './components/custom/Hero';
+
 const App = () => {
     return (
         <div className=''>
-            <h1 className='text-2xl'>Auto Slide AI</h1>
+            <Hero />
         </div>
     );
 };
