@@ -1,8 +1,8 @@
-import Hero from './components/custom/Hero';
+import Hero from './page/Home/Hero';
 
 const App = () => {
     return (
-        <div className=''>
+        <div>
             <Hero />
         </div>
     );

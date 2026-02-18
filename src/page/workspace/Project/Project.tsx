@@ -5,7 +5,8 @@ const Project = () => {
 
     return (
         <div>
-            <h1>Project Page {projectId}</h1>
+            Project Page -{' '}
+            {projectId ? `Project ID: ${projectId}` : 'No Project ID provided'}
         </div>
     );
 };

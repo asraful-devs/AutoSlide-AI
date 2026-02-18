@@ -1,17 +1,29 @@
-import logo from '../../assets/logo.jpg';
-import { Button } from '../ui/button';
+import { Link } from 'react-router-dom';
 import { ModeToggle } from './mode-toggle';
 
 const Navbar = () => {
     return (
-        <div className='flex items-center justify-between p-4 bg-gray-800 text-white'>
-            <img src={logo} alt='Logo' className='w-10 h-10' />
-            <div className='flex space-x-2'>
-                <Button>Sign In</Button>
-                <Button variant='default'>Sign Up</Button>
+        <header className='flex items-center justify-between py-4'>
+            <Link to='/' className='text-xl font-semibold tracking-tight'>
+                AutoSlide AI
+            </Link>
+
+            <nav className='flex items-center gap-6'>
+                <Link
+                    to='/'
+                    className='text-sm text-muted-foreground hover:text-foreground transition-colors'
+                >
+                    Home
+                </Link>
+                <Link
+                    to='/workspace'
+                    className='text-sm text-muted-foreground hover:text-foreground transition-colors'
+                >
+                    Workspace
+                </Link>
                 <ModeToggle />
-            </div>
-        </div>
+            </nav>
+        </header>
     );
 };
 

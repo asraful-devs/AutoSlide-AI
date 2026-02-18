@@ -2,11 +2,12 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
-import Layout from './components/layout/Layout';
-import { ThemeProvider } from './hooks/theme-provider';
+
+import { ThemeProvider } from './components/theme-provider';
 import './index.css';
-import Workspace from './pages/workspace/Workspace';
-import Project from './pages/workspace/project/Project';
+import Layout from './layout/Layout';
+import Project from './page/workspace/Project/Project';
+import Workspace from './page/workspace/Workspace';
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
         <StrictMode>
-            <div className='min-h-screen bg-background text-foreground'>
+            <div className=''>
                 <RouterProvider router={router} />
             </div>
         </StrictMode>
