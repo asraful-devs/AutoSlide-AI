@@ -1,7 +1,11 @@
+import { SignInButton, UserButton, useUser } from '@clerk/clerk-react';
 import { Link } from 'react-router-dom';
+import { Button } from '../ui/button';
 import { ModeToggle } from './mode-toggle';
 
 const Navbar = () => {
+    const { user } = useUser();
+
     return (
         <header className='flex items-center justify-between py-4'>
             <Link to='/' className='text-xl font-semibold tracking-tight'>
@@ -21,6 +25,14 @@ const Navbar = () => {
                 >
                     Workspace
                 </Link>
+                {!user ? (
+                    <SignInButton mode='modal'>
+                        <Button size='sm'>Sign In</Button>
+                    </SignInButton>
+                ) : (
+                    <UserButton />
+                )}
+
                 <ModeToggle />
             </nav>
         </header>

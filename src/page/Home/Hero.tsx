@@ -1,8 +1,10 @@
+import { SignInButton, useUser } from '@clerk/clerk-react';
 import { Play } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { HeroVideoDialog } from '../../components/ui/hero-video-dialog';
 
 const Hero = () => {
+    const { user } = useUser();
     return (
         <div className='space-y-12'>
             {/* Hero Text */}
@@ -30,7 +32,13 @@ const Hero = () => {
                     <Play className='mr-1 h-4 w-4' />
                     Watch Demo
                 </Button>
-                <Button size='sm'>Get Started</Button>
+                {!user ? (
+                    <SignInButton mode='modal'>
+                        <Button size='sm'>Get Started</Button>
+                    </SignInButton>
+                ) : (
+                    <Button size='sm'>Get WorkSpace</Button>
+                )}
             </div>
 
             {/* Video Section */}
